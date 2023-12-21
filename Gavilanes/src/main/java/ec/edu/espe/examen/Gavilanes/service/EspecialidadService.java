@@ -19,7 +19,7 @@ public class EspecialidadService {
 
     @Transactional
     public Especialidad create(Especialidad especialidad){
-        List<Especialidad> especialidadTmp = this.especialidadRepository.findByNombre(especialidad.getNombre());
+        Especialidad especialidadTmp = this.especialidadRepository.findByNombre(especialidad.getNombre());
         if (especialidadTmp == null) {
             return this.especialidadRepository.save(especialidad);
         } else {
@@ -27,7 +27,7 @@ public class EspecialidadService {
         }
     }
 
-    public List<Especialidad> listByPatronNombre(String Nombre){
+    public Especialidad listByPatronNombre(String Nombre){
         return this.especialidadRepository.findByNombre(Nombre);
     }
     
